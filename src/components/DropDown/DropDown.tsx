@@ -1,18 +1,6 @@
 import React, { useRef, useState } from "react";
 import useClickOutside from "../../hooks/useClickOutside";
-
-type Option = {
-  label: string;
-  value: string;
-};
-
-type DropdownProps = {
-  name: string;
-  value: string;
-  options: Option[];
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement | HTMLSelectElement>) => void;
-};
+import { DropdownProps } from "./types";
 
 const Dropdown: React.FC<DropdownProps> = ({
   name,
@@ -24,7 +12,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // useClickOutside expects ref (not ref.current)
   useClickOutside(dropdownRef, isOpen, () => {
     if (isOpen) {
       setIsOpen(false);

@@ -156,7 +156,7 @@ function App() {
             Product Uploaded Successfully!
           </div>
         )}
-        <div className="flex flex-col justify-center md:flex-row">
+        <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:items-start md:justify-center">
           <ProductForm
             formData={formData}
             errors={errors}
