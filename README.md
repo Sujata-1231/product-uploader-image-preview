@@ -65,3 +65,34 @@ Tech Stack
     TypeScript
 
     Tailwind CSS
+
+### Potential Improvements and Future Enhancements
+
+1. Form Validation UX
+
+- Add a red border (border-red-500) around fields that have validation errors to make errors more visible.
+
+2. Form Submission Behavior
+
+- Keep the "Submit" button disabled until the form is fully valid (all fields filled, images uploaded) and enable it dynamically.
+
+3. Custom Reusable Components
+
+- Create a reusable button component with built-in loading state, disabled state, and consistent styles.
+
+4. Dynamic Color Themes
+
+- Implement a utility to generate dynamic Tailwind classes for different theme colors (e.g., primary, success, danger) to make theming easier.
+
+5. Better Toast Management
+
+- Instead of manually showing a success toast, integrate a lightweight toast library like react-hot-toast or build a minimal custom toast component.
+
+6. Image Preview Enhancements
+
+- Show file size and type under each previewed image.
+
+7. Accessibility (a11y) Improvements
+
+- Improve focus styles for keyboard navigation.
+- Add proper ARIA labels for upload buttons and form fields.
