@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ImagePreviewProps } from "./types";
 
 const ImagePreview: React.FC<ImagePreviewProps> = ({
@@ -7,10 +8,13 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({
   errors,
   handleBlur,
 }) => {
+  const [showErrorToast, setShowErrorToast] = useState(false);
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files?.length) {
       if (images.length + e.target.files.length > 3) {
-        alert("You can only upload up to 3 images.");
+        setShowErrorToast(true);
+        setTimeout(() => setShowErrorToast(false), 3000);
         return;
       }
       handleChange(e);
@@ -18,6 +22,11 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({
   };
   return (
     <div className="flex flex-col items-center p-4 w-full max-w-md bg-white">
+      {showErrorToast && (
+        <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-4 py-2 rounded shadow-lg animate-bounce z-50">
+          You can only upload up to 3 images!
+        </div>
+      )}
       <label className="block font-semibold mb-2">Upload Images (max 3)</label>
 
       {images.length < 3 && (

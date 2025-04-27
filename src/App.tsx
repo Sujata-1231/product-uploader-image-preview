@@ -152,7 +152,7 @@ function App() {
         className="flex flex-col md:flex-col w-full max-w-5xl gap-6 rounded-xl bg-white p-4 md:p-6 shadow-md justify-between"
       >
         {success && (
-          <div className="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg animate-bounce z-50">
+          <div className="fixed top-5 left-1/2  bg-green-500 -translate-x-1/2 text-white px-4 py-2 rounded shadow-lg animate-bounce z-50">
             Product Uploaded Successfully!
           </div>
         )}
@@ -173,13 +173,15 @@ function App() {
             handleBlur={handleBlur}
           />
         </div>
-        <button
-          type="submit"
-          className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Saving..." : "Submit Product"}
-        </button>
+        <div className="flex flex-col md:flex-row justify-end">
+          <button
+            type="submit"
+            className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition w-full md:w-auto cursor-pointer"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Saving..." : "Submit Product"}
+          </button>
+        </div>
       </form>
     </div>
   );
