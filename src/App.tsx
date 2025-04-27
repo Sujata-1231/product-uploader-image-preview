@@ -131,7 +131,29 @@ function App() {
 
     setIsSubmitting(true);
     setTimeout(() => {
+      // logging form data
       console.log("Form Data:", formData);
+
+      // logging individual data
+      console.log("Submitted Product Details:");
+      console.log("Title:", formData.title);
+      console.log("Category:", formData.category);
+      console.log("Tags:", formData.tags);
+      console.log(
+        "Images:",
+        formData.images.map((img) => img.name)
+      );
+
+      // logging images in a table format
+      console.table(
+        formData.images.map((img, idx) => ({
+          "Image #": idx + 1,
+          "File Name": img.name,
+          "File Size (KB)": (img.size / 1024).toFixed(2),
+          Type: img.type,
+        }))
+      );
+
       setIsSubmitting(false);
       setSuccess(true);
       setFormData({
